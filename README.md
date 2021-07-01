@@ -34,6 +34,8 @@ I tested my hypothesis about GAPNet a deep convolutional GAN ([DCGAN](https://ar
 
 I compared this model to a classifier with the same architecture, but trained on only the same 20 labeled MNIST examples. I tested on the same 10,000 sample test set.
 
+Test set findings:
+
 | Methodology | Crossentropy Loss | Accuracy |
 | ----------- | ----------------- | -------- |
 | Baseline    |                   |          |
