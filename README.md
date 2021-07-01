@@ -18,9 +18,9 @@
 This repo contains the code I used to investigate a model training hypothesis I'm calling GAPNet. I was hopeful the GAPNet training strategy might provide a boost in classification accuracy when you have an abundance of unlabeled examples but few labeled examples. My hypothesis _was wrong_, but here's the basic training procedure anyway:
 
 1. Train a GAN on the abundant unlabeled dataset
-2. Take the learned discriminator from the GAN and chop of it's classification head
-3. Apply a new classification head to the GAN for the primary classification task
-4. Re-train the discriminator (with the initial weights from the GAN) for the primary classification task
+2. Take the learned discriminator from the GAN and chop off its classification head
+3. Apply a new classification head to the discriminator for the primary classification task, creating a new classifier with a particular weight initialization from the GAN's discriminator
+4. Re-train the new classifier for the primary classification task
 
 ![gapnet_diagram.jpg](gapnet_diagram.jpg)
 
@@ -32,7 +32,7 @@ GAPNet didn't work! Bummer.
 
 I tested my hypothesis about GAPNet a deep convolutional GAN ([DCGAN](https://arxiv.org/abs/1511.06434)). I trained the GAN on 45,000 unlabeled training samples from MNIST, then trained the classifier (reusing initial weights from the GAN discriminator) on only 20 labeled MNIST examples. I tested the classifier on a test set of 10,000 samples.
 
-I compared this model to a classifier with the same architecture, but trained on only the same 20 labeled MNIST examples.
+I compared this model to a classifier with the same architecture, but trained on only the same 20 labeled MNIST examples. I tested on the same 10,000 sample test set.
 
 | Methodology | Crossentropy Loss | Accuracy |
 | ----------- | ----------------- | -------- |
