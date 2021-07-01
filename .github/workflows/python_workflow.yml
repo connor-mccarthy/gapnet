@@ -25,6 +25,3 @@ jobs:
       - name: Check typehints with mypy
         run: |
           mypy .
-      - name: Test with pytest
-        run: |
-          pytest
