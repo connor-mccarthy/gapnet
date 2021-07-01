@@ -3,7 +3,9 @@ from typing import Dict, Optional, Tuple, Union
 import tensorflow as tf
 
 
-def get_gaussian_latent_vector(batch_size, input_shape):
+def get_gaussian_latent_vector(
+    batch_size: int, input_shape: Tuple[int, ...]
+) -> tf.Tensor:
     return tf.random.normal(shape=(batch_size, *input_shape))
 
 

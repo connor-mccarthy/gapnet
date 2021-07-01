@@ -7,7 +7,9 @@ from IPython import display
 
 
 class ImageLoggerCallback(tf.keras.callbacks.Callback):
-    def __init__(self, image_prefix: str = "image_at_epoch_", gif_name: str = "gif"):
+    def __init__(
+        self, image_prefix: str = "image_at_epoch_", gif_name: str = "gif"
+    ) -> None:
         super(ImageLoggerCallback, self).__init__()
         self.image_prefix = image_prefix
         self.gif_name = gif_name
@@ -35,7 +37,7 @@ class ImageLoggerCallback(tf.keras.callbacks.Callback):
 
 def generate_and_save_images(model, epoch, generator_input, prefix):
     predictions = model.predict(generator_input)
-    fig = plt.figure(figsize=(4, 4))
+    plt.figure(figsize=(4, 4))
 
     for i in range(predictions.shape[0]):
         plt.subplot(4, 4, i + 1)

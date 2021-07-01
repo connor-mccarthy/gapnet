@@ -17,9 +17,9 @@ from colorama import Fore
 from plot_keras_history import plot_history
 from tensorflow.keras.callbacks import EarlyStopping, TerminateOnNaN
 
-from config import BATCH_SIZE, IMAGE_SHAPE
+from config import IMAGE_SHAPE
 from config import OUTPUT_CLASSES as MNIST_OUTPUT_CLASSES
-from config import SAVED_MODEL_DIR, UNLABELED_TRAIN_SAMPLES, Z_DIM
+from config import SAVED_MODEL_DIR, Z_DIM
 from custom_callbacks import ImageLoggerCallback
 from data import labeled_train_ds, test_ds, unlabeled_train_ds, val_ds
 from gan import GAN
@@ -66,7 +66,7 @@ def fit_model(model: tf.keras.models.Model, use_fast_optimizer=True) -> None:
     plt.pause(0.001)
 
 
-def fit_baseline_model():
+def fit_baseline_model() -> None:
     discriminator = make_discriminator(IMAGE_SHAPE)
     headless_discriminator = discriminator.get_layer("headless_model")
     classification_layer = tf.keras.layers.Dense(
@@ -102,7 +102,7 @@ def fit_gan() -> None:
             unlabeled_train_ds,
             epochs=50,
             callbacks=[
-                ImageLoggerCallback("image_at_epoch_", f"{gan.name}_gif"),
+                ImageLoggerCallback("images/image_at_epoch_", f"images/{gan.name}_gif"),
                 tf.keras.callbacks.TerminateOnNaN(),
             ],
         )
@@ -124,7 +124,7 @@ def fit_gan() -> None:
     fit_model(baseline_classifier)
 
 
-def main():
+def main() -> None:
     fit_baseline_model()
     fit_gan()
 

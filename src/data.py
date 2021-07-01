@@ -10,7 +10,9 @@ from config import (
 )
 
 
-def make_dataset_performant(dataset, is_small=False):
+def make_dataset_performant(
+    dataset: tf.data.Dataset, is_small=False
+) -> tf.data.Dataset:
     if is_small:
         return (
             dataset.shuffle(len(dataset))

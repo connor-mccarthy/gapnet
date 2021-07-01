@@ -16,11 +16,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('poetry.lock') }}-${{ hashFiles('dev_requirements.txt') }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r dev_requirements.txt
+          pip install -r requirements.txt
       - name: Lint with flake8
         run: |
           flake8 .
