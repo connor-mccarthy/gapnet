@@ -8,19 +8,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.7.10
+      - name: Set up Python 3.8.10
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7.10
-      - name: Python environment cache set up
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+          python-version: 3.8.10
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r black mypy flake8
       - name: Lint with flake8
         run: |
           flake8 .
