@@ -1,0 +1,26 @@
+import os
+
+# paths
+PROJECT_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
+SAVED_MODEL_DIR = os.path.join(PROJECT_ROOT, "saved_models")
+
+# global
+RANDOM_SEED = 42
+
+# training
+BATCH_SIZE = 256
+SMALL_BATCH_SIZE = 4
+# data
+LABELED_TRAIN_SAMPLES = 20
+UNLABELED_TRAIN_SAMPLES = 45_000
+VALIDATION_SAMPLES = 1_000
+BUILTIN_TEST_SAMPLES = 10_000
+ADJUSTED_TOTAL_SAMPLES = (
+    LABELED_TRAIN_SAMPLES + UNLABELED_TRAIN_SAMPLES + VALIDATION_SAMPLES
+)
+
+# mnist specific
+IMAGE_SHAPE = (28, 28, 1)
+OUTPUT_CLASSES = 10
+Z_DIM = 100
+IMAGE_SIZE = 28 * 28
