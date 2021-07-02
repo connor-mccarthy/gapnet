@@ -38,8 +38,8 @@ Test set findings:
 
 | Methodology | Crossentropy Loss | Accuracy |
 | ----------- | ----------------- | -------- |
-| Baseline    |                   |          |
-| GAPNet      |                   |          |
+| Baseline    | 1.5583            | 0.53123  |
+| GAPNet      | 1.7642            | 0.4828   |
 
 ### Reproducing results
 
