@@ -32,13 +32,13 @@ GAPNet didn't work! Bummer.
 
 I tested my hypothesis about GAPNet a deep convolutional GAN ([DCGAN](https://arxiv.org/abs/1511.06434)). I trained the GAN on 45,000 unlabeled training samples from MNIST, then trained the classifier (reusing initial weights from the GAN discriminator) on only 20 labeled MNIST examples. I tested the classifier on a test set of 10,000 samples.
 
-I compared this model to a classifier with the same architecture, but trained on only the same 20 labeled MNIST examples. I tested on the same 10,000 sample test set.
+I compared this model to a classifier with the same architecture (GAN discriminator + classification head), but trained on only the same 20 labeled MNIST examples. I tested on the same 10,000 sample test set.
 
 Test set findings:
 
 | Methodology | Crossentropy Loss | Accuracy |
 | ----------- | ----------------- | -------- |
-| Baseline    | 1.5583            | 0.53123  |
+| Baseline    | 1.5583            | 0.5312   |
 | GAPNet      | 1.7642            | 0.4828   |
 
 ### Reproducing results
