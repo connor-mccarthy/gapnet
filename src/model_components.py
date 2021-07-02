@@ -1,13 +1,7 @@
 from typing import Tuple
 
-import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers
-
-from config import RANDOM_SEED
-
-np.random.seed(RANDOM_SEED)
-tf.random.set_seed(RANDOM_SEED)
 
 
 def make_discriminator(input_shape: Tuple[int, ...]) -> tf.keras.Model:
